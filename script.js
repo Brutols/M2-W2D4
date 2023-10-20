@@ -20,30 +20,42 @@ const marco = {
   name: "Marco",
   lastName: "Rossi",
   isAmbassador: true,
-  cart: ""
+  //cart: 0
 }
 
 const paul = {
   name: "Paul",
   lastName: "Flynn",
   isAmbassador: false,
-  cart: ""
+  //cart: 0
 }
 
 const amy = {
   name: "Amy",
   lastName: "Reed",
   isAmbassador: false,
-  cart: ""
+  //cart: 0
 }
 
 const prices = [34, 5, 2]
 const shippingCost = 50
-let utenteCheEffettuaLAcquisto = paul //cambia il valore qui per provare se il tuo algoritmo funziona!
+let utenteCheEffettuaLAcquisto = marco //cambia il valore qui per provare se il tuo algoritmo funziona!
+let shoppingCart = 0
 
-let shoppingCart = (prices[0] * 3) + prices[1] //esempio di carrello
+for (let k = 0; k < prices.length; k++) {
+  shoppingCart += prices[k];
+}
+console.log(shoppingCart);
 
 if (utenteCheEffettuaLAcquisto.isAmbassador) {
+  Math.round(shoppingCart *= 0.7)
+} if (shoppingCart > 100) {
+  console.log(shoppingCart);
+} else {
+  console.log(shoppingCart + shippingCost);
+}
+
+/* if (utenteCheEffettuaLAcquisto.isAmbassador) {
   utenteCheEffettuaLAcquisto.cart = Math.round((shoppingCart * 70) / 100)
 } else {
   utenteCheEffettuaLAcquisto.cart = shoppingCart
@@ -51,7 +63,7 @@ if (utenteCheEffettuaLAcquisto.isAmbassador) {
   console.log(utenteCheEffettuaLAcquisto.cart);
 } else {
   console.log(utenteCheEffettuaLAcquisto.cart + shippingCost);
-}
+} */
 
 // --------------------------------------------------------------------------
 
@@ -60,7 +72,7 @@ users.push(marco, paul, amy) //array users
 
 let ambassadors = []
 
-for (i = 0; i < users.length; i++) {
+for (let i = 0; i < users.length; i++) {
   if (users[i].isAmbassador) {
     console.log(users[i].name + " " + users[i].lastName + " è un ambassador" );
     ambassadors.push(users[i])
@@ -70,14 +82,3 @@ for (i = 0; i < users.length; i++) {
 }
 
 console.log(ambassadors);
-
-// ---------------------------------------------------------------------------------
-
-/* let index = ""
-
-for (i = 0; i < users.length; i++) {
-  if (users[i].isAmbassador) {
-    index = users.indexOf(users[i])
-    console.log(index);
-  }
-} */
